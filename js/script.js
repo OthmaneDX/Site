@@ -1,1 +1,1 @@
-document.querySelectorAll("nav a").forEach(a=>a.onclick=e=>{const h=a.getAttribute("href");if(h.startsWith("#")){e.preventDefault();document.querySelector(h).scrollIntoView({behavior:"smooth"});}});
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.onclick=e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});});
