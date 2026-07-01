@@ -132,3 +132,25 @@ h1{font-size:3rem}
 }
 
 }
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+    margin-top:25px;
+}
+
+.service-card{
+    background:#0f1225;
+    border:1px solid #ffffff18;
+    border-radius:16px;
+    padding:18px;
+    text-align:center;
+    font-weight:600;
+    transition:.3s;
+}
+
+.service-card:hover{
+    transform:translateY(-6px);
+    border-color:#7c4dff;
+    box-shadow:0 10px 25px #7c4dff55;
+}
