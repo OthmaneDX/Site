@@ -37,3 +37,98 @@ header{flex-direction:column;gap:20px}
 nav{display:flex;flex-wrap:wrap;justify-content:center}
 h1{font-size:3rem}
 }
+/* ===========================
+   Privacy Policy
+=========================== */
+
+.policy-container{
+    max-width:1000px;
+    margin:80px auto;
+    padding:50px;
+    background:#14192e;
+    border:1px solid #ffffff18;
+    border-radius:24px;
+    box-shadow:0 20px 40px #0008;
+}
+
+.policy-container h1{
+    font-size:3rem;
+    margin-bottom:10px;
+    text-align:center;
+}
+
+.policy-container .updated{
+    text-align:center;
+    color:#9ea4bf;
+    margin-bottom:50px;
+}
+
+.policy-container section{
+    padding:0;
+    margin-bottom:45px;
+}
+
+.policy-container h2{
+    text-align:left;
+    font-size:2rem;
+    margin-bottom:18px;
+    color:#9b7dff;
+}
+
+.policy-container h3{
+    margin:20px 0 10px;
+    color:#68b8ff;
+}
+
+.policy-container p{
+    color:#d8ddff;
+    margin-bottom:18px;
+    line-height:1.8;
+}
+
+.policy-container ul{
+    margin-left:25px;
+    color:#d8ddff;
+}
+
+.policy-container li{
+    margin-bottom:10px;
+}
+
+.contact-box{
+    margin-top:20px;
+    padding:25px;
+    background:#0f1225;
+    border:1px solid #ffffff18;
+    border-radius:16px;
+}
+
+.policy-container a{
+    color:#68b8ff;
+}
+
+.policy-container a:hover{
+    color:#9b7dff;
+}
+
+.back-home{
+    display:inline-block;
+    margin-top:40px;
+}
+
+@media(max-width:900px){
+
+.policy-container{
+    margin:30px 20px;
+    padding:30px;
+}
+
+.policy-container h1{
+    font-size:2.3rem;
+}
+
+.policy-container h2{
+    font-size:1.6rem;
+}
+
+}
