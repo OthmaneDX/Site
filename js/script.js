@@ -99,6 +99,7 @@
   const wantsMotion = matchMedia("(prefers-reduced-motion: no-preference)").matches;
 
   if (canHover && wantsMotion) initPointerFX();
+  else if (wantsMotion) initTiltFX();
 
   function initPointerFX() {
     document.body.classList.add("has-pointer-fx");
@@ -189,6 +190,68 @@
       heroSection.addEventListener("pointerleave", () => {
         for (const layer of layers) layer.style.translate = "0 0";
       });
+    }
+  }
+
+  /* ------------------------------------------------------------------------
+     Touch devices have no pointer to drive tilt/parallax with, but they do
+     have a gyroscope. Reuses the exact same --px/--py custom properties (and
+     therefore the exact same CSS: card rotate, layer translate, glow
+     position) that the desktop pointer system drives, just fed from device
+     orientation instead. Calibrates against whatever angle the phone is
+     first held at, rather than assuming a fixed "flat" resting position.
+     ------------------------------------------------------------------------ */
+  function initTiltFX() {
+    if (typeof DeviceOrientationEvent === "undefined") return;
+
+    let baseline = null;
+    let active = false;
+
+    const apply = (px, py) => {
+      px = Math.max(-1, Math.min(1, px));
+      py = Math.max(-1, Math.min(1, py));
+
+      const heroArt = document.querySelector(".hero-art");
+      if (heroArt) {
+        for (const layer of heroArt.querySelectorAll("[data-depth]")) {
+          const depth = parseFloat(layer.dataset.depth) || 0;
+          layer.style.translate = `${px * depth * 100}px ${py * depth * 100}px`;
+        }
+      }
+
+      for (const card of document.querySelectorAll(".game-card")) {
+        card.style.setProperty("--px", px.toFixed(3));
+        card.style.setProperty("--py", py.toFixed(3));
+      }
+    };
+
+    const onOrientation = (e) => {
+      if (e.beta === null || e.gamma === null) return;
+      if (!baseline) baseline = { beta: e.beta, gamma: e.gamma };
+      apply((e.gamma - baseline.gamma) / 18, (e.beta - baseline.beta) / 18);
+    };
+
+    const start = () => {
+      if (active) return;
+      active = true;
+      window.addEventListener("deviceorientation", onOrientation);
+    };
+
+    if (typeof DeviceOrientationEvent.requestPermission === "function") {
+      /* iOS 13+: motion sensors are gated behind a permission prompt that
+         can only be requested from within a user gesture, so wait for the
+         visitor's first tap anywhere rather than asking on page load. */
+      const requestOnce = () => {
+        document.removeEventListener("touchend", requestOnce);
+        DeviceOrientationEvent.requestPermission()
+          .then((state) => {
+            if (state === "granted") start();
+          })
+          .catch(() => {});
+      };
+      document.addEventListener("touchend", requestOnce, { once: true });
+    } else {
+      start();
     }
   }
 })();

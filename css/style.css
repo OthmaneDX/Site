@@ -365,7 +365,8 @@
     background: var(--brand-gradient);
     box-shadow: var(--glow);
     cursor: pointer;
-    transition: translate 0.25s var(--ease), box-shadow 0.25s var(--ease), filter 0.25s var(--ease);
+    transition: translate 0.25s var(--ease), box-shadow 0.25s var(--ease), filter 0.25s var(--ease),
+      scale 0.15s var(--ease);
   }
 
   .btn:hover {
@@ -376,6 +377,7 @@
 
   .btn:active {
     translate: 0 0;
+    scale: 0.96;
   }
 
   .btn svg {
@@ -473,7 +475,8 @@
     border-block-end: 1px solid var(--line);
   }
 
-  .nav-mobile a:not(.btn):hover {
+  .nav-mobile a:not(.btn):hover,
+  .nav-mobile a:not(.btn):active {
     background: color-mix(in oklab, var(--violet) 16%, transparent);
   }
 
@@ -842,6 +845,14 @@
     border: 1px solid var(--line);
     border-radius: var(--radius-sm);
     background: color-mix(in oklab, var(--ink-800) 60%, transparent);
+    transition: scale 0.15s var(--ease), border-color 0.25s var(--ease);
+  }
+
+  @media (hover: none) {
+    .value:active {
+      scale: 0.97;
+      border-color: var(--line-strong);
+    }
   }
 
   .value h3 {
@@ -1243,8 +1254,11 @@
     }
   }
 
-  /* ---- Hero parallax layers ---------------------------------------------- */
-  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  /* ---- Hero parallax layers ----------------------------------------------
+     Not gated to (hover: hover): on touch this same translate is driven by
+     the device's gyroscope instead of the pointer, so the transition needs
+     to apply there too. */
+  @media (prefers-reduced-motion: no-preference) {
     .hero-art [data-depth] {
       transition: translate 0.25s var(--spring);
     }
@@ -1279,7 +1293,17 @@
 
   @media (hover: none) {
     .game-card:active .game-card__stage {
-      scale: 0.98;
+      scale: 0.97;
+    }
+
+    /* No hover to reveal it, so the glow (and its gyroscope-driven position)
+       stays faintly visible all the time instead of only on touch. */
+    .game-card__glow {
+      opacity: 0.3;
+    }
+
+    .game-card:active .game-card__glow {
+      opacity: 0.55;
     }
   }
 
