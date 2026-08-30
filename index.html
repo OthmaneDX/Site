@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 <title>Kilow Limited | Indie Mobile Game Studio</title>
-<meta name="description" content="Kilow Limited is an indie mobile game studio building polished, free-to-play Android games. Play Banana Escape on Google Play.">
+<meta name="description" content="Kilow Limited is an indie mobile game studio building polished, free-to-play Android games. Play Banana Monster Rush and Frednight Rabbit Survival on Google Play.">
 <link rel="canonical" href="https://kilowlimited.com/">
 <meta name="theme-color" content="#070913">
 
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Kilow Limited">
 <meta property="og:url" content="https://kilowlimited.com/">
 <meta property="og:title" content="Kilow Limited | Indie Mobile Game Studio">
-<meta property="og:description" content="Polished, free-to-play Android games built by a small independent studio.">
+<meta property="og:description" content="Two polished, free-to-play Android games built by a small independent studio.">
 <meta property="og:image" content="https://kilowlimited.com/img/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -30,7 +30,7 @@
 <!-- Fonts: preconnect to both hosts, gstatic needs crossorigin to be reused -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/style.css?v=20260725">
+<link rel="stylesheet" href="css/style.css?v=20260830">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap"></noscript>
 
@@ -57,10 +57,19 @@
     },
     {
       "@type": "SoftwareApplication",
-      "name": "Banana Escape",
+      "name": "Banana Monster Rush",
       "applicationCategory": "GameApplication",
       "operatingSystem": "Android",
       "url": "https://play.google.com/store/apps/details?id=com.banana.escape.bestgame",
+      "publisher": { "@id": "https://kilowlimited.com/#org" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Frednight Rabbit Survival",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Android",
+      "url": "https://play.google.com/store/apps/details?id=com.night.rabbit.survival.killowLimited",
       "publisher": { "@id": "https://kilowlimited.com/#org" },
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
     }
@@ -104,15 +113,15 @@
 
     <a class="logo" href="/" aria-label="Kilow Limited — home">
       <svg aria-hidden="true"><use href="#i-gamepad"/></svg>
-      <span>KILOW LIMITED</span>
+      <span><span class="kinetic-letter" style="--i:0">K</span><span class="kinetic-letter" style="--i:1">I</span><span class="kinetic-letter" style="--i:2">L</span><span class="kinetic-letter" style="--i:3">O</span><span class="kinetic-letter" style="--i:4">W</span> LIMITED</span>
     </a>
 
     <nav class="nav-desktop" aria-label="Primary">
-      <a href="#games">Games</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="privacy-policy.html">Privacy</a>
-      <a class="btn" href="https://play.google.com/store/apps/developer?id=Kilow%20Limited" target="_blank" rel="noopener">
+      <a href="#games" data-magnetic="0.3">Games</a>
+      <a href="#about" data-magnetic="0.3">About</a>
+      <a href="#contact" data-magnetic="0.3">Contact</a>
+      <a href="privacy-policy.html" data-magnetic="0.3">Privacy</a>
+      <a class="btn" data-magnetic="0.25" data-cursor="PLAY" href="https://play.google.com/store/apps/developer?id=Kilow%20Limited" target="_blank" rel="noopener">
         <svg aria-hidden="true"><use href="#i-play"/></svg>
         Google Play
       </a>
@@ -149,28 +158,30 @@
 
       <div class="hero-text">
         <p class="badge">Indie Game Studio</p>
-        <h1>We build<br><span class="accent">epic mobile games</span></h1>
+        <h1><span class="word-reveal" style="--i:0">We</span> <span class="word-reveal" style="--i:1">build</span><br><span class="accent word-reveal" style="--i:2">epic mobile games</span></h1>
         <p class="lede">Crafting polished Android experiences with beautiful visuals, smooth gameplay and frequent updates.</p>
 
         <div class="hero-actions">
-          <a class="btn btn--hero" href="https://play.google.com/store/apps/details?id=com.banana.escape.bestgame" target="_blank" rel="noopener">
+          <a class="btn btn--hero" data-magnetic="0.3" data-cursor="EXPLORE" href="#games">
             <svg aria-hidden="true"><use href="#i-play"/></svg>
-            Play Banana Escape
+            Explore our games
           </a>
-          <a class="btn btn--ghost" href="#about">About us</a>
+          <a class="btn btn--ghost" data-magnetic="0.3" href="#about">About us</a>
         </div>
 
         <ul class="stats" role="list">
-          <li><strong>10K+</strong><span>Players</span></li>
-          <li><strong>100%</strong><span>Free to play</span></li>
-          <li><strong>Android</strong><span>Google Play</span></li>
+          <li><strong><span data-count-to="10" data-count-suffix="K+">10K+</span></strong><span>Players</span></li>
+          <li><strong><span data-count-to="100" data-count-suffix="%">100%</span></strong><span>Free to play</span></li>
+          <li><strong>2</strong><span>Games live</span></li>
         </ul>
       </div>
 
       <div class="hero-art" aria-hidden="true">
-        <div class="orb"></div>
-        <div class="ring"></div>
-        <svg class="gamepad" viewBox="0 0 64 64"><use href="#i-gamepad"/></svg>
+        <div class="orb" data-depth="0.02"></div>
+        <div class="ring" data-depth="0.05"></div>
+        <div class="hero-particle hero-particle--a" data-depth="0.14"></div>
+        <div class="hero-particle hero-particle--b" data-depth="0.08"></div>
+        <svg class="gamepad" data-depth="0.1" viewBox="0 0 64 64"><use href="#i-gamepad"/></svg>
       </div>
 
     </div>
@@ -181,32 +192,69 @@
 
       <div class="section-head reveal">
         <h2>Featured Games</h2>
-        <p>Small catalogue, high polish. Every title is free to download on Google Play.</p>
+        <p>Small catalogue, high polish. Two titles out now, free to download on Google Play.</p>
       </div>
 
       <ul class="games-grid" role="list">
 
-        <li class="card reveal">
-          <p class="card-tag">Out now</p>
-          <h3>Banana Escape</h3>
-          <p>Run, dodge obstacles and escape as far as you can. An endless runner built for one-handed play and quick sessions.</p>
-          <a class="btn" href="https://play.google.com/store/apps/details?id=com.banana.escape.bestgame" target="_blank" rel="noopener">
-            <svg aria-hidden="true"><use href="#i-play"/></svg>
-            Play now
-          </a>
+        <li class="game-card game-card--banana reveal">
+          <div class="game-card__stage">
+            <p class="card-tag">Out now</p>
+
+            <a class="game-card__art" data-cursor="PLAY" href="https://play.google.com/store/apps/details?id=com.banana.escape.bestgame" target="_blank" rel="noopener" aria-label="Play Banana Monster Rush on Google Play">
+              <img class="game-card__art-img" src="img/icon-banana.webp" alt="" loading="lazy" style="--depth:0.4">
+              <span class="game-card__scrim" aria-hidden="true"></span>
+              <span class="game-card__glow" aria-hidden="true"></span>
+            </a>
+
+            <h3>Banana Monster Rush</h3>
+            <p>Run, dodge and outlast a jungle gone feral — an endless one-thumb sprint built for quick sessions and clean, chaotic near-misses.</p>
+            <a class="btn" data-magnetic="0.3" data-cursor="PLAY" href="https://play.google.com/store/apps/details?id=com.banana.escape.bestgame" target="_blank" rel="noopener">
+              <svg aria-hidden="true"><use href="#i-play"/></svg>
+              Play now
+            </a>
+          </div>
+        </li>
+
+        <li class="game-card game-card--rabbit reveal">
+          <div class="game-card__stage">
+            <p class="card-tag">Out now</p>
+
+            <a class="game-card__art" data-cursor="PLAY" href="https://play.google.com/store/apps/details?id=com.night.rabbit.survival.killowLimited" target="_blank" rel="noopener" aria-label="Play Frednight Rabbit Survival on Google Play">
+              <img class="game-card__art-img" src="img/icon-rabbit.webp" alt="" loading="lazy" style="--depth:0.4">
+              <span class="game-card__scrim" aria-hidden="true"></span>
+              <span class="game-card__glow" aria-hidden="true"></span>
+            </a>
+
+            <h3>Frednight Rabbit Survival</h3>
+            <p>Survive till dawn. Something in a rabbit mask is hunting the dark — keep the lights on, keep quiet, keep moving.</p>
+            <a class="btn" data-magnetic="0.3" data-cursor="PLAY" href="https://play.google.com/store/apps/details?id=com.night.rabbit.survival.killowLimited" target="_blank" rel="noopener">
+              <svg aria-hidden="true"><use href="#i-play"/></svg>
+              Play now
+            </a>
+          </div>
+        </li>
+
+        <li class="game-card game-card--chameleon reveal">
+          <div class="game-card__stage">
+            <p class="card-tag card-tag--soon">In development</p>
+
+            <div class="game-card__art" aria-hidden="true">
+              <img class="game-card__art-img" src="img/icon-chameleon.webp" alt="" loading="lazy" style="--depth:0.4">
+              <span class="game-card__scrim" aria-hidden="true"></span>
+              <span class="game-card__glow" aria-hidden="true"></span>
+            </div>
+
+            <h3>Chameleon Surfer Rush</h3>
+            <p>Grind the rails, dodge the beat cop and outrun the train — a color-shifting endless surfer with one more run in it every time.</p>
+            <p class="card-status">Release date to be announced</p>
+          </div>
         </li>
 
         <li class="card reveal">
           <p class="card-tag card-tag--soon">In development</p>
           <h3>Puzzle Project</h3>
           <p>A relaxed tile puzzler with handcrafted levels and no timers. Currently in early development.</p>
-          <p class="card-status">Release date to be announced</p>
-        </li>
-
-        <li class="card reveal">
-          <p class="card-tag card-tag--soon">In development</p>
-          <h3>Arcade Project</h3>
-          <p>A fast, score-chasing arcade game with instant restarts and a single-thumb control scheme.</p>
           <p class="card-status">Release date to be announced</p>
         </li>
 
@@ -248,11 +296,17 @@
   <section class="cta">
     <div class="shell reveal">
       <h2>Ready to Play?</h2>
-      <p>Download Banana Escape free from Google Play and see how far you can run.</p>
-      <a class="btn btn--hero" href="https://play.google.com/store/apps/details?id=com.banana.escape.bestgame" target="_blank" rel="noopener">
-        <svg aria-hidden="true"><use href="#i-play"/></svg>
-        Download now
-      </a>
+      <p>Two free games, zero paywalls. Grab either one from Google Play and jump straight in.</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a class="btn btn--hero" data-magnetic="0.3" data-cursor="PLAY" href="https://play.google.com/store/apps/details?id=com.banana.escape.bestgame" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-play"/></svg>
+          Banana Monster Rush
+        </a>
+        <a class="btn btn--hero" data-magnetic="0.3" data-cursor="PLAY" href="https://play.google.com/store/apps/details?id=com.night.rabbit.survival.killowLimited" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-play"/></svg>
+          Frednight Rabbit Survival
+        </a>
+      </div>
     </div>
   </section>
 
