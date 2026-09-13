@@ -1359,12 +1359,12 @@
     background: linear-gradient(0deg, color-mix(in oklab, var(--ink-900) 55%, transparent), transparent 55%);
   }
 
-  .game-card--banana {
+  .game-card--bear {
     --accent: var(--amber);
     --accent-deep: var(--amber-deep);
   }
 
-  .game-card--rabbit {
+  .game-card--penguin {
     --accent: var(--night);
     --accent-deep: var(--night-deep);
   }
