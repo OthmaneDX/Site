@@ -1310,20 +1310,23 @@
   .game-card__art {
     display: block;
     position: relative;
-    aspect-ratio: 16 / 10;
+    /* Square, matching the actual icon art (1:1) — a wider box forced these
+       via object-fit: cover into a tight, zoomed-looking crop that cut off
+       each game's logo text near the top. */
+    aspect-ratio: 1 / 1;
     border-radius: var(--radius-sm);
     overflow: clip;
     isolation: isolate;
     background: var(--ink-900);
   }
 
-  /* Real game art: object-fit into the box, 12% overscan so the depth
+  /* Real game art: object-fit into the box, small overscan so the depth
      parallax translate never reveals an edge, subtle zoom on hover/tilt. */
   .game-card__art-img {
     position: absolute;
-    inset: -6%;
-    inline-size: 112%;
-    block-size: 112%;
+    inset: -3%;
+    inline-size: 106%;
+    block-size: 106%;
     object-fit: cover;
     translate: calc(var(--px, 0) * var(--depth, 0) * 30px) calc(var(--py, 0) * var(--depth, 0) * 30px);
     transition: translate 0.22s var(--spring), scale 0.3s var(--ease);
@@ -1331,7 +1334,7 @@
 
   .game-card:hover .game-card__art-img,
   .game-card:focus-within .game-card__art-img {
-    scale: 1.04;
+    scale: 1.02;
   }
 
   .game-card__glow {
