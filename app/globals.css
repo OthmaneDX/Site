@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+/* Kilow visual system — dark cinematic ground, off-white type, one accent.
+   Per-game tints are the same accent relit, not a new hue family. */
+@theme {
+  --color-ink-950: oklch(0.1 0.018 280);
+  --color-ink-900: oklch(0.13 0.02 280);
+  --color-ink-800: oklch(0.18 0.025 280);
+  --color-ink-700: oklch(0.24 0.03 280);
+  --color-ink-600: oklch(0.32 0.035 280);
+
+  --color-paper: oklch(0.96 0.006 280);
+  --color-paper-dim: oklch(0.72 0.015 280);
+  --color-paper-faint: oklch(0.5 0.02 280);
+
+  --color-accent: oklch(0.62 0.24 288);
+  --color-accent-lite: oklch(0.74 0.16 288);
+  --color-accent-deep: oklch(0.4 0.19 288);
+
+  --color-bear: oklch(0.75 0.15 65);
+  --color-bear-deep: oklch(0.45 0.13 45);
+  --color-chameleon: oklch(0.68 0.2 155);
+  --color-chameleon-deep: oklch(0.4 0.15 155);
+  --color-penguin: oklch(0.68 0.13 235);
+  --color-penguin-deep: oklch(0.35 0.09 250);
+
+  --font-display: var(--font-poppins);
+  --font-body: var(--font-poppins);
+
+  --text-clamp-xs: clamp(0.8rem, 0.76rem + 0.2vw, 0.9rem);
+  --text-clamp-sm: clamp(0.95rem, 0.9rem + 0.25vw, 1.05rem);
+  --text-clamp-base: clamp(1rem, 0.95rem + 0.3vw, 1.15rem);
+  --text-clamp-lg: clamp(1.25rem, 1.1rem + 0.7vw, 1.75rem);
+  --text-clamp-xl: clamp(1.75rem, 1.4rem + 1.6vw, 2.75rem);
+  --text-clamp-2xl: clamp(2.5rem, 1.8rem + 3vw, 4.5rem);
+  --text-clamp-hero: clamp(3.2rem, 1.5rem + 9vw, 9.5rem);
+
+  --ease-kilow: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-kilow-in: cubic-bezier(0.7, 0, 0.84, 0);
+
+  --animate-grain: grain 8s steps(8) infinite;
+}
+
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-1%, -2%);
+  }
+  30% {
+    transform: translate(2%, 1%);
+  }
+  50% {
+    transform: translate(-2%, 2%);
+  }
+  70% {
+    transform: translate(1%, -1%);
+  }
+  90% {
+    transform: translate(-1%, 1%);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-ink-950);
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-ink-950);
+  color: var(--color-paper);
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-ink-950);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-lite);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom cursor hides the native one only once JS confirms fine-pointer +
+   motion-safe; see components/cursor. Never hidden by default. */
+body.has-cursor-fx {
+  cursor: none;
+}
