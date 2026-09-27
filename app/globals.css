@@ -11,7 +11,10 @@
 
   --color-paper: oklch(0.96 0.006 280);
   --color-paper-dim: oklch(0.72 0.015 280);
-  --color-paper-faint: oklch(0.5 0.02 280);
+  /* 0.5 read as "faint" but failed WCAG AA contrast on the ink-900 surface
+     (related-games card copy) — 0.62 keeps it visibly dimmer than
+     paper-dim while staying AA-safe on every surface it's used on. */
+  --color-paper-faint: oklch(0.62 0.02 280);
 
   --color-accent: oklch(0.62 0.24 288);
   --color-accent-lite: oklch(0.74 0.16 288);

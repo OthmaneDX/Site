@@ -15,6 +15,12 @@ export const gameSchema = z.object({
     base: z.string(),
     deep: z.string(),
   }),
+  // Real gameplay media doesn't exist yet for any title — left optional on
+  // purpose so the detail page renders a complete, intentional layout with
+  // just the key art today, and a screenshot gallery / trailer embed can be
+  // dropped in later with zero component changes.
+  screenshots: z.array(z.string()).optional(),
+  trailer: z.string().url().optional(),
 });
 
 export type Game = z.infer<typeof gameSchema>;

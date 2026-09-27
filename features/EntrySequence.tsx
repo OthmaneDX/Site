@@ -19,10 +19,18 @@ export function EntrySequence() {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
+    // hasEntered defaults to true (open) so every other route works with no
+    // gate at all — this is the one place that ever closes it, and only
+    // when a fresh, motion-safe visitor genuinely needs to see it. Always
+    // sets it explicitly (both directions), not just "close when needed":
+    // useReducedMotion's own internal effect hasn't necessarily resolved
+    // the real value on this first run (it starts at `false` and flips via
+    // its own effect), so this effect re-fires once that lands — and if it
+    // only ever closed the gate and never reopened it, a stale first pass
+    // with reducedMotion still `false` could wrongly latch it shut for a
+    // reduced-motion visitor.
     const already = window.sessionStorage.getItem(SESSION_KEY) === "1";
-    if (already || reducedMotion) {
-      setHasEntered(true);
-    }
+    setHasEntered(already || reducedMotion);
     setReady(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reducedMotion]);

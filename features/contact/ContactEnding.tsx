@@ -58,6 +58,12 @@ export function ContactEnding() {
       <div className="relative mx-auto mt-24 flex max-w-6xl flex-col items-center justify-between gap-4 border-t border-paper/10 px-6 pt-8 text-clamp-xs text-paper-faint md:flex-row md:px-10">
         <span>© {new Date().getFullYear()} Kilow Limited. All rights reserved.</span>
         <div className="flex items-center gap-6">
+          <a href="/games" data-cursor="link" className="transition-colors hover:text-paper">
+            All games
+          </a>
+          <a href="/studio" data-cursor="link" className="transition-colors hover:text-paper">
+            Studio
+          </a>
           <a href="/privacy" data-cursor="link" className="transition-colors hover:text-paper">
             Privacy Policy
           </a>

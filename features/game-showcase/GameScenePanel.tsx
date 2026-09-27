@@ -71,6 +71,13 @@ export function GameScenePanel({ game, index, stacked = true }: GameScenePanelPr
                 In development
               </span>
             )}
+            <a
+              href={`/games/${game.slug}`}
+              data-cursor="link"
+              className="ml-6 font-display text-xs font-bold tracking-[0.14em] text-paper-dim uppercase transition-colors hover:text-paper"
+            >
+              View details →
+            </a>
           </div>
         </div>
 

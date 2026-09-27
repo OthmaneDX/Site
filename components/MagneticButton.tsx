@@ -11,6 +11,7 @@ interface MagneticButtonProps {
   cursor?: string;
   cursorLabel?: string;
   className?: string;
+  style?: React.CSSProperties;
   children: React.ReactNode;
 }
 
@@ -26,6 +27,7 @@ export function MagneticButton({
   cursor = "link",
   cursorLabel,
   className = "",
+  style,
   children,
 }: MagneticButtonProps) {
   const ref = useRef<HTMLAnchorElement>(null);
@@ -60,7 +62,7 @@ export function MagneticButton({
       onPointerLeave={onPointerLeave}
       onClick={() => playTone("click")}
       onMouseEnter={() => playTone("hover")}
-      style={{ x: springX, y: springY }}
+      style={{ ...style, x: springX, y: springY }}
       whileTap={{ scale: 0.95 }}
       className={className}
     >

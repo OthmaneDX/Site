@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   },
   description:
     "Kilow Limited is an independent mobile game studio building polished, free-to-play Android games — Bear Adventure Surfer, Chameleon Surfer Rush, and more on the way.",
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: SITE_URL,

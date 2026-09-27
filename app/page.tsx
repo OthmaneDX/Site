@@ -1,4 +1,5 @@
 import { EntrySequence } from "@/features/EntrySequence";
+import { HomeContent } from "@/features/HomeContent";
 import { Hero } from "@/features/hero/Hero";
 import { GameShowcase } from "@/features/game-showcase/GameShowcase";
 import { PlaySection } from "@/features/play-section/PlaySection";
@@ -12,14 +13,16 @@ export default function Home() {
   return (
     <>
       <EntrySequence />
-      <Hero />
-      <GameShowcase />
-      <PlaySection />
-      <AboutManifesto />
-      <StudioDNA />
-      <NextRun />
-      <StatsDashboard />
-      <ContactEnding />
+      <HomeContent>
+        <Hero />
+        <GameShowcase />
+        <PlaySection />
+        <AboutManifesto />
+        <StudioDNA />
+        <NextRun />
+        <StatsDashboard />
+        <ContactEnding />
+      </HomeContent>
     </>
   );
 }

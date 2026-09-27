@@ -20,8 +20,26 @@ export function usePinnedShowcase(
 
     const ctx = gsap.context(() => {
       const panels = panelRefs.current;
+      let activeIndex = 0;
+
+      // Non-active panels sit at opacity:0 but were still in normal tab
+      // order — a keyboard/screen-reader user could land on a link they
+      // can't see. `inert` removes a panel from both the tab order and the
+      // accessibility tree whenever it isn't the visible one. Written
+      // directly to the DOM (not React state) since this fires on every
+      // scroll tick and a re-render per tick would fight the GSAP scrub.
+      const setActive = (index: number) => {
+        if (index === activeIndex) return;
+        activeIndex = index;
+        panels.forEach((panel, i) => {
+          if (panel) panel.inert = i !== index;
+        });
+      };
+
       panels.forEach((panel, i) => {
-        if (i === 0 || !panel) return;
+        if (!panel) return;
+        panel.inert = i !== 0;
+        if (i === 0) return;
         gsap.set(panel, { opacity: 0, scale: 1.04 });
       });
 
@@ -33,6 +51,7 @@ export function usePinnedShowcase(
           pin: true,
           scrub: 0.6,
           anticipatePin: 1,
+          onUpdate: (self) => setActive(Math.round(self.progress * (panelCount - 1))),
         },
       });
 
@@ -48,6 +67,15 @@ export function usePinnedShowcase(
       }
     }, container);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      // `inert` was written directly to the DOM, outside GSAP's tracking,
+      // so ctx.revert() won't undo it — clear it explicitly, otherwise a
+      // panel could stay unreachable after switching to the unpinned
+      // mobile layout (e.g. on resize across the 1024px breakpoint).
+      panelRefs.current.forEach((panel) => {
+        if (panel) panel.inert = false;
+      });
+    };
   }, [containerRef, panelRefs, panelCount, enabled]);
 }

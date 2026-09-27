@@ -28,7 +28,6 @@ export function SoundToggle({ className = "" }: { className?: string }) {
       onClick={toggle}
       data-cursor="link"
       aria-pressed={soundEnabled}
-      aria-label={soundEnabled ? "Mute sound" : "Enable sound"}
       className={`font-display text-xs font-bold tracking-[0.14em] text-paper-dim uppercase transition-colors hover:text-paper ${className}`}
     >
       {soundEnabled ? "Sound On" : "Sound Off"}
