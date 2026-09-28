@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | Kilow Limited",
   },
   description:
-    "Kilow Limited is an independent mobile game studio building polished, free-to-play Android games — Bear Adventure Surfer, Chameleon Surfer Rush, and more on the way.",
+    "Kilow Limited is an independent mobile game studio building polished, free-to-play Android games — Bear Adventure Surfer, Chameleon Surfer Rush, and Gugu Gaga Penguin Surfer.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",

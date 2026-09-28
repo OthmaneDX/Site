@@ -6,13 +6,16 @@ import { Logo } from "@/components/Logo";
 import { MagneticButton } from "@/components/MagneticButton";
 import { MobileMenu } from "@/components/MobileMenu";
 import { useUiStore } from "@/store/ui";
+import { upcomingGames } from "@/data/games";
 
 // "/#id" (not bare "#id") so these resolve correctly from every route, not
-// just the home page.
+// just the home page. "Next" only appears while there's actually an
+// upcoming title to tease — NextRun itself renders nothing once every game
+// is live, so linking to it otherwise would point at an empty section.
 const LINKS = [
   { href: "/#games", label: "Games" },
   { href: "/#studio", label: "Studio" },
-  { href: "/#next", label: "Next" },
+  ...(upcomingGames.length > 0 ? [{ href: "/#next", label: "Next" }] : []),
   { href: "/#contact", label: "Contact" },
 ];
 

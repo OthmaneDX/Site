@@ -69,11 +69,17 @@ const rawGames = [
     title: "Gugu Gaga Penguin Surfer",
     tagline: "Suit up. Grind the neon night.",
     description:
-      "A penguin-suited rider takes the rails through a neon-lit night city — the next endless surfer in the Kilow lineup, still in development.",
-    status: "development",
+      "A penguin-suited rider takes the rails through a neon-lit night city — the newest endless surfer in the Kilow lineup.",
+    status: "live",
     keyArt: "/img/icon-penguin.webp",
+    storeUrl:
+      "https://play.google.com/store/apps/details?id=com.kilow.gugu.gaga.gogo.penguin.surfer",
     platform: "Android",
-    features: ["Endless rail-grind", "Neon night city setting", "Coming to Google Play"],
+    features: [
+      "Endless one-thumb rail-grind",
+      "Neon night city setting",
+      "Free to play, no paywalls",
+    ],
     accent: { base: "var(--color-penguin)", deep: "var(--color-penguin-deep)" },
   },
 ] satisfies Game[];
