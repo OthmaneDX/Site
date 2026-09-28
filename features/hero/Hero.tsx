@@ -7,7 +7,6 @@ import { HeroTypography } from "@/features/hero/HeroTypography";
 import { MagneticButton } from "@/components/MagneticButton";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useCanRunFullExperience } from "@/hooks/useIsTouchDevice";
-import { useUiStore } from "@/store/ui";
 import { fadeUp } from "@/lib/motion";
 
 const Scene3D = dynamic(() => import("@/features/hero/Scene3D").then((m) => m.Scene3D), {
@@ -17,12 +16,7 @@ const Scene3D = dynamic(() => import("@/features/hero/Scene3D").then((m) => m.Sc
 export function Hero() {
   const reducedMotion = useReducedMotion();
   const { canHover, isCapableDevice } = useCanRunFullExperience();
-  const hasEntered = useUiStore((s) => s.hasEntered);
-  // Gated on hasEntered too: the scene is invisible behind the opaque entry
-  // screen until then, so there's no reason to pay for WebGL init before
-  // the visitor has actually clicked in — matches the "world begins
-  // forming after entry" beat and keeps it out of the initial-load cost.
-  const use3D = canHover && isCapableDevice && !reducedMotion && hasEntered;
+  const use3D = canHover && isCapableDevice && !reducedMotion;
 
   return (
     <section id="hero" className="relative min-h-screen overflow-hidden bg-ink-950">
@@ -33,18 +27,18 @@ export function Hero() {
         <motion.p
           variants={fadeUp}
           initial="hidden"
-          animate={hasEntered ? "visible" : "hidden"}
+          animate="visible"
           className="mb-6 font-display text-xs font-bold tracking-[0.3em] text-paper-dim uppercase"
         >
           Kilow Limited — Indie Game Studio
         </motion.p>
 
-        <HeroTypography play={hasEntered} />
+        <HeroTypography />
 
         <motion.div
           variants={fadeUp}
           initial="hidden"
-          animate={hasEntered ? "visible" : "hidden"}
+          animate="visible"
           transition={{ delay: 0.6 }}
           className="mt-10 flex flex-wrap items-center gap-5"
         >

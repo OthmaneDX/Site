@@ -5,7 +5,6 @@ import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { Logo } from "@/components/Logo";
 import { MagneticButton } from "@/components/MagneticButton";
 import { MobileMenu } from "@/components/MobileMenu";
-import { useUiStore } from "@/store/ui";
 import { upcomingGames } from "@/data/games";
 
 // "/#id" (not bare "#id") so these resolve correctly from every route, not
@@ -26,11 +25,6 @@ export function FloatingNav() {
   const lastY = useRef(0);
   const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  // Defaults to true everywhere except while the home page's entry gate is
-  // actively showing — see store/ui.ts. Visually the gate already covers
-  // the nav, but `inert` is what stops a keyboard user from tabbing past it
-  // into links they can't see yet.
-  const hasEntered = useUiStore((s) => s.hasEntered);
 
   useMotionValueEvent(scrollY, "change", (y) => {
     const goingDown = y > lastY.current && y > 120;
@@ -41,7 +35,6 @@ export function FloatingNav() {
   return (
     <>
       <motion.header
-        inert={!hasEntered}
         animate={{ y: hidden ? -96 : 0 }}
         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
         className="fixed inset-x-0 top-0 z-[100] px-6 py-5 md:px-10"

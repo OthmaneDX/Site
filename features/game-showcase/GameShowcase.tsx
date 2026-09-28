@@ -6,7 +6,6 @@ import { games } from "@/data/games";
 import { GameScenePanel } from "@/features/game-showcase/GameScenePanel";
 import { usePinnedShowcase } from "@/features/game-showcase/usePinnedShowcase";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { useUiStore } from "@/store/ui";
 import { fadeUp } from "@/lib/motion";
 
 /** Desktop gets the pinned cinematic cross-fade sequence; mobile and
@@ -28,13 +27,9 @@ export function GameShowcase() {
     return () => mq.removeEventListener("change", onChange);
   }, []);
 
-  const hasEntered = useUiStore((s) => s.hasEntered);
   const pinned = wideEnough && !reducedMotion;
 
-  // Scroll is locked until hasEntered (see EntrySequence), so registering
-  // the pin/ScrollTrigger — and paying its layout-measurement cost — any
-  // earlier would just be work nobody can act on yet.
-  usePinnedShowcase(containerRef, panelRefs, games.length, pinned && hasEntered);
+  usePinnedShowcase(containerRef, panelRefs, games.length, pinned);
 
   return (
     <section id="games" aria-label="Featured games" className="bg-ink-950">

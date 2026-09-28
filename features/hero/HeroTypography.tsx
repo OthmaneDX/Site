@@ -9,7 +9,7 @@ import { useReducedMotion } from "@/hooks/useReducedMotion";
 const LINE_1 = ["WE", "BUILD", "WORLDS."];
 const LINE_2 = ["YOU", "PLAY", "THEM."];
 
-export function HeroTypography({ play }: { play: boolean }) {
+export function HeroTypography() {
   const rootRef = useRef<HTMLDivElement>(null);
   const reducedMotion = useReducedMotion();
 
@@ -36,9 +36,7 @@ export function HeroTypography({ play }: { play: boolean }) {
   // starts scrolling away from the hero, so it reads as "letting go" rather
   // than abruptly disappearing.
   useEffect(() => {
-    // Scroll is locked until entry, so there's nothing to measure/react to
-    // yet — deferring this avoids paying its layout cost during load.
-    if (reducedMotion || !play) return;
+    if (reducedMotion) return;
     const el = rootRef.current;
     if (!el) return;
     ensureGsap();
@@ -62,14 +60,14 @@ export function HeroTypography({ play }: { play: boolean }) {
     // ScrollTrigger above) and tears it down on revert — no need to touch
     // ScrollTrigger.getAll(), which would also kill other components'.
     return () => ctx.revert();
-  }, [reducedMotion, play]);
+  }, [reducedMotion]);
 
   return (
     <div ref={rootRef} className="transition-[translate] duration-500 ease-out">
       <motion.h1
         variants={stagger(0.09, 0.3)}
         initial="hidden"
-        animate={play ? "visible" : "hidden"}
+        animate="visible"
         className="font-display text-clamp-hero font-extrabold leading-[0.92] tracking-tight text-paper"
       >
         <span className="block overflow-hidden">
