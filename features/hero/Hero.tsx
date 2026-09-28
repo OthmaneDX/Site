@@ -30,7 +30,7 @@ export function Hero() {
           animate="visible"
           className="mb-6 font-display text-xs font-bold tracking-[0.3em] text-paper-dim uppercase"
         >
-          Kilow Limited — Indie Game Studio
+          Indie Game Studio
         </motion.p>
 
         <HeroTypography />

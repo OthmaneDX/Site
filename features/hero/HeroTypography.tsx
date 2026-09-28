@@ -6,6 +6,7 @@ import { stagger, revealText } from "@/lib/motion";
 import { ensureGsap, gsap } from "@/lib/gsap";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
+const WORDMARK = "KILOW".split("");
 const LINE_1 = ["WE", "BUILD", "WORLDS."];
 const LINE_2 = ["YOU", "PLAY", "THEM."];
 
@@ -64,6 +65,20 @@ export function HeroTypography() {
 
   return (
     <div ref={rootRef} className="transition-[translate] duration-500 ease-out">
+      <motion.p
+        variants={stagger(0.04)}
+        initial="hidden"
+        animate="visible"
+        aria-hidden
+        className="mb-2 flex font-display text-clamp-xl font-extrabold tracking-[0.14em] text-paper-dim"
+      >
+        {WORDMARK.map((letter, i) => (
+          <motion.span key={i} variants={revealText} className="inline-block">
+            {letter}
+          </motion.span>
+        ))}
+      </motion.p>
+
       <motion.h1
         variants={stagger(0.09, 0.3)}
         initial="hidden"

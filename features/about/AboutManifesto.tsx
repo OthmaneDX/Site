@@ -5,9 +5,9 @@ import { fadeUp, stagger } from "@/lib/motion";
 
 const PRINCIPLES = [
   { title: "Gameplay first", body: "If it isn't fun in the first thirty seconds, it doesn't ship." },
-  { title: "Built for phones", body: "One-handed controls, short sessions, instant loading." },
-  { title: "Free to play", body: "No paywalls blocking the core experience, ever." },
-  { title: "Always improving", body: "Shipped by player feedback, reviews and crash reports." },
+  { title: "One-hand first", body: "Built for a thumb on a bus, not two hands at a desk." },
+  { title: "Fast to fun", body: "No tutorials, no paywalls — you're playing within seconds." },
+  { title: "Ship. Learn. Improve.", body: "Every update comes from what players actually tell us." },
 ];
 
 export function AboutManifesto() {
@@ -32,7 +32,9 @@ export function AboutManifesto() {
           transition={{ delay: 0.05 }}
           className="mt-4 font-display text-clamp-2xl font-extrabold tracking-tight text-paper uppercase"
         >
-          We are Kilow.
+          Small team.
+          <br />
+          Big games.
         </motion.h2>
         <motion.p
           variants={fadeUp}
@@ -42,7 +44,7 @@ export function AboutManifesto() {
           transition={{ delay: 0.1 }}
           className="mt-4 max-w-xl text-clamp-lg text-paper-dim"
         >
-          Small team. Big worlds. We build mobile games around one simple idea:
+          We build mobile games around one simple idea:
           <span className="block text-paper"> the gameplay comes first.</span>
         </motion.p>
 

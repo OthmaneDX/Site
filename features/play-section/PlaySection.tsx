@@ -10,7 +10,7 @@ import { fadeUp, stagger } from "@/lib/motion";
 export function PlaySection() {
   return (
     <section className="relative overflow-hidden bg-ink-950 py-32">
-      <div className="absolute inset-0 bg-[radial-gradient(50%_60%_at_50%_50%,color-mix(in_oklab,var(--color-accent)_18%,transparent),transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(40%_45%_at_50%_50%,color-mix(in_oklab,var(--color-accent)_10%,transparent),transparent_70%)]" />
 
       <motion.div
         variants={stagger(0.1)}

@@ -23,7 +23,7 @@ const LINKS = [
 export function ContactEnding() {
   return (
     <footer id="contact" className="relative overflow-hidden bg-ink-950 pt-32 pb-12">
-      <div className="absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_0%,color-mix(in_oklab,var(--color-accent)_14%,transparent),transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(45%_40%_at_50%_0%,color-mix(in_oklab,var(--color-accent)_9%,transparent),transparent_70%)]" />
 
       <motion.div
         variants={stagger(0.1)}
